@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% block content %}
+
+<br><br><br><br>
+
+<div class="container">
+    <div class="row">
+        <h4 class="text-center text-primary mb-3">Update Reservation Details</h4>
+        <br>
+        <form method="post" action="{% url 'update_reservation_detail' r.id %}">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label for="Name" class="form-label">Your Name</label>
+                        <input type="text" name="user_name"
+                            value="{{request.user.first_name}} {{request.user.last_name}}" class="form-control Name"
+                            autocomplete="on" readonly>
+                        <input type="hidden" value="{{r.price_per_person}}" name="price_per_person" id="price_per_person">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Number" class="form-label">Your Phone Number</label>
+                        <input type="text" pattern="\d{10}" value="{{r.phone}}" maxlength="10" name="phone_number"
+                            class="form-control Number" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mt-3">
+                        <label for="chooseGuests" class="form-label">Number Of Guests</label>
+                        <div class="input-group">
+                            <button class="btn btn-dark rounded-2 w-25 h-25" type="button" onclick="minus()">-</button>
+                            <input type="number" value="{{r.number_of_guest}}" name="number_of_guest" id="number_of_person"
+                                class="form-control text-center w-25 rounded-2" min="1" onchange="reloadPage()" required>
+                            <button class="btn btn-dark rounded-2 w-25 h-25" type="button" onclick="plus()">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mt-3 ">
+                        <label for="Number" class="form-label">Check In Date</label>
+                        <input type="date" value="{{r.check_in_date}}" name="check_in_date" class="form-control date" required>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group mt-3">
+                        <label for="chooseDestination" class="form-label">Choose Your Destination</label>
+                        <select name="city_name" id="user_destination" class="form-select mb-3"
+                            onchange="updateDestinationDetails()">
+                            {% for i in city_town_data %}
+                            <option value="{{ i.act_city_name }}" data-price="{{ i.act_price }}"
+                                data-duration="{{ i.act_tour_duration }}"
+                                data-description="{{ i.act_tour_description | safe}}"
+                                {% if r.city == i.act_city_name %}selected{% endif %}>
+                                {{ i.act_city_name }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <p id="total_price" class="mb-0">Total Price: ₹{{r.total_price}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p id="tour_duration" class="mb-0 text-md-end">Tour Duration: {{r.tour_duration}}</p>
+                            <input type="hidden" name="t_dur" id="t_dur" value="{{r.tour_duration}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <p id="tour_des">{{r.tour_description}}</p>
+                    <input type="hidden" name="t_des" id="t_des" value="{{r.tour_description}}">
+                </div>
+                <div class="col-12 my-3">
+                    <button type="submit" class="btn btn-primary">Update Reservation</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function updateDestinationDetails() {
+    var select = document.getElementById('user_destination');
+    var selectedOption = select.options[select.selectedIndex];
+
+    var price = selectedOption.getAttribute('data-price');
+    var duration = selectedOption.getAttribute('data-duration');
+    var description = selectedOption.getAttribute('data-description');
+
+    // Clear old data
+    document.getElementById('price_per_person').value = '';
+    document.getElementById('tour_duration').innerHTML = '';
+    tour_des.innerHTML = ''; // Clear existing package description
+
+    // Check if the selected destination is different from the current tour duration
+    if (duration !== document.getElementById('tour_duration').textContent.replace('Tour Duration: ', '')) {
+        // Update tour duration and t_dur if different
+        document.getElementById('tour_duration').innerHTML = 'Tour Duration: ' + duration;
+        document.getElementById('t_dur').value = duration;
+    }
+
+    // Set new data
+    document.getElementById('price_per_person').value = price;
+    document.getElementById('tour_des').innerHTML = description; // Set new package description
+    document.getElementById('t_des').value = description;
+
+    updateTotalPrice();
+}
+
+
+    function updateTotalPrice() {
+        var pricePerPerson = parseFloat(document.getElementById('price_per_person').value);
+        var numberOfPerson = parseInt(document.getElementById('number_of_person').value) || 1;
+
+        var totalPrice = pricePerPerson * numberOfPerson;
+        document.getElementById('total_price').innerHTML = 'Total Price: ₹' + totalPrice;
+    }
+
+    function reloadPage() {
+        updateTotalPrice();
+        // location.reload();
+    }
+
+    function minus() {
+        var numberOfPerson = document.getElementById('number_of_person');
+        var value = parseInt(numberOfPerson.value) || 1;
+        if (value > 1) {
+            numberOfPerson.value = value - 1;
+            updateTotalPrice();
+        }
+    }
+
+    function plus() {
+        var numberOfPerson = document.getElementById('number_of_person');
+        var value = parseInt(numberOfPerson.value) || 1;
+        numberOfPerson.value = value + 1;
+        updateTotalPrice();
+    }
+
+    document.getElementById('number_of_person').addEventListener('input', function () {
+        if (this.value < 1) {
+            this.value = 1;
+        }
+        updateTotalPrice();
+    });
+
+    // Add event listener to update details when the destination changes
+    document.getElementById('user_destination').addEventListener('change', function () {
+    localStorage.setItem('selectcity', this.value);
+    updateDestinationDetails();
+    });
+
+
+</script>
+
+
+{% endblock content %}

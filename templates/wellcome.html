@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br><br><br><br>
+<h2 class="text text-center text-primary">Wellcome...</h2>
+
+<p class="text text-dark p-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, eveniet obcaecati! Quam animi labore similique nesciunt placeat eum quis modi architecto beatae explicabo corrupti necessitatibus distinctio nam, dolore a veritatis. Laudantium et architecto aliquid excepturi autem facere necessitatibus consequatur harum nostrum ipsum tempora, non consequuntur ab exercitationem praesentium dignissimos quod.</p>
+
+<script>
+    function showAlert(message, icon) {
+        Swal.fire({
+            title: 'Notification',
+            text: message,
+            icon: icon,
+            confirmButtonText: 'OK'
+        });
+    }
+
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+                showAlert("{{ message }}", "{{ message.tags }}");
+            </script>
+        {% endfor %}
+    {% endif %}
+</script>
+{% endblock content %}
+

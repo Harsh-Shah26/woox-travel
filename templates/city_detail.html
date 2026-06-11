@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  /* added by me */
+  .header-area,
+  .background-header,
+  footer {
+    display: none !important;
+  }
+
+  /* added by me */
+  #js-preloader {
+    display: none !important;
+  }
+</style>
+
+<!-- added by me : full screen hero slider -->
+<div class="city-full-slider owl-carousel">
+  {% for img in gallery_images %}
+  <div class="city-full-slide" style="background-image: url('{{ img.url }}');"> 
+    <div class="city-full-overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="city-hero-content">
+              <a href="{% url 'about' %}" class="city-back-btn">← Back to About</a>
+              <h5>EXPLORE {{ city.act_city_name|upper }}</h5>
+              <h1>{{ city.act_city_name }}</h1>
+              <p>Discover the beauty, culture, and unforgettable experiences of {{ city.act_city_name }}.</p>
+              <div class="main-button">
+                <a href="{% url 'reservation' %}">Book This Trip</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+<!-- ***** Top Places to Visit Start ***** -->
+<section class="top-places-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-heading text-center">
+          <h2>Top Places to Visit in {{ city.act_city_name }}</h2>
+          <p>Discover some of the most popular attractions and must-visit places in {{ city.act_city_name }}.</p>
+        </div>
+      </div>
+
+      {% for place in places %}
+      <div class="col-lg-3 col-md-6 d-flex">
+        <div class="place-card">
+          <img src="{{ place.place_image.url }}" alt="{{ place.place_name }}">
+          <h4>{{ place.place_name }}</h4>
+          <p>{{ place.place_description }}</p>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-lg-12">
+        <p class="text-center text-white">Top places will be updated soon.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- ***** Top Places to Visit End ***** -->
+ 
+
+<!-- added by me : gallery thumbnails -->
+<!-- added by me : gallery carousel -->
+<section class="city-gallery-strip">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-heading text-center city-gallery-heading">
+          <h2>{{ city.act_city_name }} <em>Gallery</em></h2>
+          <p>Take a visual journey through the beauty, culture, and charm of {{ city.act_city_name }}.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="owl-city-gallery owl-carousel">
+      {% for img in gallery_images %}
+      <div class="item">
+        <div class="city-gallery-item">
+          <img src="{{ img.url }}" alt="{{ city.act_city_name }}">
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ***** City Quick Info Start ***** -->
+<section class="city-info-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-heading text-center">
+          <h2>Quick Info About {{ city.act_city_name }}</h2>
+          <p>Get a quick overview of the destination, trip cost, duration, and travel highlights.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="info-item">
+        <span>📍 Destination</span>
+        <h5>{{ city.act_city_name }}</h5>
+      </div>
+
+      <div class="info-item">
+        <span>💰 Starting Price</span>
+        <h5>₹{{ city.act_price }}</h5>
+      </div>
+
+      <div class="info-item">
+        <span>🕒 Duration</span>
+        <h5>{{ city.act_tour_duration }}</h5>
+      </div>
+
+      <div class="info-item">
+        <span>🌤 Best Experience</span>
+        <h5>City Exploration</h5>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ***** City Quick Info End ***** -->
+
+<!-- added by me : themed details section -->
+<section class="city-detail-section themed-city-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-heading text-center city-detail-heading">
+          <h2>Travel Guide to <em>{{ city.act_city_name }}</em></h2>
+          <p>Get a quick overview of the destination, trip cost, duration, and tour highlights before you plan your journey.</p>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 col-md-6">
+        <div class="city-info-box">
+          <h4>Starting Price</h4>
+          <span>₹{{ city.act_price }}</span>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="city-info-box">
+          <h4>Tour Duration</h4>
+          <span>{{ city.act_tour_duration }}</span>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-12">
+        <div class="city-info-box">
+          <h4>Destination</h4>
+          <span>{{ city.act_city_name }}</span>
+        </div>
+      </div>
+
+      <div class="col-lg-12">
+        <div class="city-description-box">
+          <h3>Tour Description</h3>
+          <div class="city-description-content">
+            {{ city.act_tour_description|safe }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12 text-center" style="margin-top: 30px;">
+        <div class="main-button">
+          <a href="{% url 'about' %}">Back to Cities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- ***** Bottom CTA Start ***** -->
+<section class="city-bottom-cta">
+  <div class="container">
+    <div class="cta-box">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <h2>Ready to Explore {{ city.act_city_name }}?</h2>
+          <p>Discover the best places, plan your trip with ease, and make your journey unforgettable.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <div class="main-button">
+            <a href="{% url 'reservation' %}">Book Your Trip</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ***** Bottom CTA End ***** -->
+{% endblock %}

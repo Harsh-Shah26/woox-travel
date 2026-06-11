@@ -1,0 +1,468 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<br><br>
+<div class="second-page-heading">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h4>Book Preferred Deal Here</h4>
+        <h2>Make Your Reservation</h2>
+        <p>Immerse yourself in the enchanting beauty of India as you plan your next getaway. Explore the diverse landscapes, from the tranquil backwaters of Kerala to the majestic peaks of the Himalayas.</p>
+        <div class="main-button"><a href="{% url 'about' %}">Discover More</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Compact service section */
+  .more-info.reservation-info {
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+
+  .more-info.reservation-info .info-item {
+    padding: 18px 16px;
+    min-height: 150px;
+    border-radius: 18px;
+  }
+
+  .more-info.reservation-info .info-item i {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .more-info.reservation-info .info-item h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .more-info.reservation-info .info-item a {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Reservation section */
+  .reservation-form {
+    padding-top: 20px;
+  }
+
+  .preview-wrap,
+  .reservation-form-wrap {
+    background: #ffffff;
+    border-radius: 23px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .preview-box {
+    padding: 20px;
+  }
+
+  .preview-card {
+    background: #fff;
+    border: 1px solid #edf1f5;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .preview-card-head {
+    padding: 12px 16px;
+    background: #f8fbff;
+    border-bottom: 1px solid #e8eef5;
+  }
+
+  .preview-card-head h5 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #1e3a5f;
+  }
+
+  .preview-card img {
+    width: 100%;
+    height: 350px;  #increase image size
+    object-fit: cover;
+    display: block;
+  }
+
+  .preview-card iframe {
+    width: 100%;
+    height: 350px; #map size increase map
+    border: 0;
+    display: block;
+  }
+
+  .preview-info {
+    margin-top: 18px;
+    background: #f8fbff;
+    border: 1px solid #e8eef5;
+    border-radius: 18px;
+    padding: 16px 18px;
+  }
+
+  .preview-info p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #1e3a5f;
+  }
+
+  .preview-info p:last-child {
+    margin-bottom: 0;
+  }
+
+  .reservation-form-wrap {
+    margin-top: 22px;
+    padding: 28px;
+  }
+
+  .selected-city-badge-wrap {
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  .selected-city-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #1eaaf1, #007bff);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 6px 16px rgba(0,123,255,0.18);
+  }
+
+  .reservation-form-wrap .form-group {
+    margin-bottom: 18px;
+  }
+
+  .reservation-form-wrap .form-control,
+  .reservation-form-wrap .form-select {
+    min-height: 48px;
+    border-radius: 12px;
+  }
+
+  .reservation-summary-box {
+    background: #f8fbff;
+    border: 1px solid #e8eef5;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+  }
+
+  .reservation-summary-box p {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: #1e3a5f;
+  }
+
+  #tour_des {
+    background: #fcfcfc;
+    border: 1px solid #ececec;
+    border-radius: 14px;
+    padding: 14px 16px;
+    min-height: 90px;
+    margin-bottom: 0;
+  }
+
+  .guest-input-group .btn {
+    min-width: 52px;
+  }
+
+  @media (max-width: 991px) {
+    .preview-card img,
+    .preview-card iframe {
+      height: 220px;
+    }
+
+    .reservation-form-wrap {
+      padding: 22px 18px;
+    }
+  }
+</style>
+
+<div class="more-info reservation-info">
+  <div class="container">
+    <div class="row g-3">
+      {% for a in service_data %}
+      <div class="col-lg-4 col-sm-6">
+        <div class="info-item">
+          <i class="{{a.service_icon}}"></i>
+          <h4>{{a.service_title}}</h4>
+          <a href="#">{{a.service_des | capfirst | safe }}</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="reservation-form">
+  <div class="container">
+
+    <!-- TOP PREVIEW SECTION: IMAGE + MAP -->
+    <div class="preview-wrap" id="destination-preview-section"> 
+      <div class="preview-box">
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="preview-card">
+              <div class="preview-card-head">
+                <h5>Destination Preview</h5>
+              </div>
+              <img
+                id="destination-image"
+                src="{% if city_town_data.0.act_img %}{{ city_town_data.0.act_img.url }}{% else %}{% static 'assets/images/cta-bg.jpg' %}{% endif %}"
+                alt="Destination Preview">
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="preview-card">
+              <div class="preview-card-head">
+                <h5>Destination Map</h5>
+              </div>
+              <iframe
+                id="destination-map"
+                src="https://www.google.com/maps?q=Mount Abu Rajasthan India&output=embed"
+                allowfullscreen="">
+              </iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <div class="preview-info">
+              <p id="preview_city"><strong>City:</strong> {{ city_town_data.0.act_city_name }}</p>
+              <p id="preview_duration"><strong>Tour Duration:</strong> {{ city_town_data.0.act_tour_duration }}</p>
+              <p id="preview_price"><strong>Price Per Person:</strong> ₹{{ city_town_data.0.act_price }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM SECTION BELOW -->
+    <div class="reservation-form-wrap">
+      <form id="reservation-form" name="gsx" method="post" action="{% url 'user_reservation' %}">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-12">
+            <h4 class="text-center mb-3">Make Your <em>Reservation</em> Through This <em>Form</em></h4>
+
+            <div class="selected-city-badge-wrap">
+              <span class="selected-city-badge" id="selected-city-badge">
+                Selected Destination: {{ city_town_data.0.act_city_name }}
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="Name" class="form-label">Your Name</label>
+              <input type="text" name="user_name" value="{{request.user.first_name}} {{request.user.last_name}}" class="form-control Name" autocomplete="on" readonly>
+              <input type="hidden" name="price_per_person" id="price_per_person">
+              <input type="hidden" name="username" value="{{request.user}}">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="Number" class="form-label">Your Phone Number</label>
+              <input type="text" pattern="\d{10}" maxlength="10" name="phone_number" class="form-control Number" required>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="chooseGuests" class="form-label">Number Of Guests</label>
+              <div class="input-group guest-input-group">
+                <button class="btn btn-outline-secondary" type="button" onclick="minus()">-</button>
+                <input type="number" value="1" name="number_of_guest" id="number_of_person" class="form-control text-center" min="1" onchange="reloadPage()" required>
+                <button class="btn btn-outline-secondary" type="button" onclick="plus()">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="Number" class="form-label">Check In Date</label>
+              <input type="date" name="check_in_date" class="form-control date" required>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="Email" class="form-label">Email</label>
+              <input type="email" name="email" value="{{request.user.email}}" class="form-control email" readonly>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="chooseDestination" class="form-label">Choose Your Destination</label>
+              <select name="city_name" id="user_destination" class="form-select" onchange="updateDestinationDetails()">
+                {% for i in city_town_data %}
+                <option
+                  value="{{ i.act_city_name }}"
+                  data-price="{{ i.act_price }}"
+                  data-duration="{{ i.act_tour_duration }}"
+                  data-description="{{ i.act_tour_description|striptags }}"
+                  data-image="{% if i.act_img %}{{ i.act_img.url }}{% else %}{% static 'assets/images/cta-bg.jpg' %}{% endif %}">
+                  {{ i.act_city_name }}
+                </option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="reservation-summary-box">
+              <div class="row">
+                <div class="col-md-6">
+                  <p id="total_price">Total Price: ₹0</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                  <p id="tour_duration"></p>
+                  <input type="hidden" name="t_dur" id="t_dur">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 mb-4">
+            <p id="tour_des" class="d-block"></p>
+            <input type="hidden" name="t_des" id="t_des">
+          </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary w-100">Make Your Reservation Now</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var selectedCity = localStorage.getItem('selectcity');
+
+  if (selectedCity) {
+    document.getElementById('user_destination').value = selectedCity;
+  }
+
+  // Page load pe sirf data update karo, scroll mat karo
+  updateDestinationDetails(false);
+
+  localStorage.removeItem('selectcity');
+  localStorage.removeItem('city_price');
+  localStorage.removeItem('tour_duration');
+  localStorage.removeItem('t_des');
+});
+
+function updateDestinationDetails(shouldScroll = true) {
+  var select = document.getElementById('user_destination');
+  var selectedOption = select.options[select.selectedIndex];
+
+  var cityName = select.value;
+  var price = selectedOption.getAttribute('data-price');
+  var duration = selectedOption.getAttribute('data-duration');
+  var description = selectedOption.getAttribute('data-description');
+  var imageUrl = selectedOption.getAttribute('data-image');
+
+  document.getElementById('price_per_person').value = price;
+  document.getElementById('tour_duration').innerHTML = 'Tour Duration: ' + duration;
+  document.getElementById('tour_des').innerHTML = description;
+  document.getElementById('t_dur').value = duration;
+  document.getElementById('t_des').value = description;
+
+  document.getElementById('preview_city').innerHTML = '<strong>City:</strong> ' + cityName;
+  document.getElementById('preview_duration').innerHTML = '<strong>Tour Duration:</strong> ' + duration;
+  document.getElementById('preview_price').innerHTML = '<strong>Price Per Person:</strong> ₹' + price;
+  document.getElementById('selected-city-badge').innerHTML = 'Selected Destination: ' + cityName;
+
+  updateTotalPrice();
+  updateMap(cityName);
+  updateImage(imageUrl, cityName);
+
+  if (shouldScroll) {
+    scrollToPreview();
+  }
+}
+
+function scrollToPreview() {
+  const previewSection = document.getElementById('destination-preview-section');
+  if (!previewSection) return;
+
+  previewSection.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+}
+
+function updateMap(cityName) {
+  const map = document.getElementById('destination-map');
+  if (!map) return;
+
+  const cityMapQuery = {
+    'MOUNT ABU': 'Mount Abu Rajasthan India',
+    'GOA': 'Goa India',
+    'KASHMIR': 'Kashmir India',
+    'JAIPUR': 'Jaipur Rajasthan India',
+    'KOLKATA': 'Kolkata West Bengal India',
+    'VARANASI': 'Varanasi Uttar Pradesh India',
+    'UDAIPUR': 'Udaipur Rajasthan India',
+    'MANALI': 'Manali Himachal Pradesh India',
+    'MUMBAI': 'Mumbai Maharashtra India',
+    'Mumbai': 'Mumbai Maharashtra India',
+    'RISHIKESH': 'Rishikesh Uttarakhand India'
+  };
+
+  const query = cityMapQuery[cityName] || 'India';
+  map.src = `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
+}
+
+function updateImage(imageUrl, cityName) {
+  const image = document.getElementById('destination-image');
+  if (!image) return;
+
+  if (imageUrl && imageUrl.trim() !== '') {
+    image.src = imageUrl;
+    image.alt = cityName + ' Preview';
+  }
+}
+
+function updateTotalPrice() {
+  var pricePerPerson = parseFloat(document.getElementById('price_per_person').value) || 0;
+  var numberOfPerson = parseInt(document.getElementById('number_of_person').value) || 1;
+  var totalPrice = pricePerPerson * numberOfPerson;
+
+  document.getElementById('total_price').innerHTML = 'Total Price: ₹' + totalPrice;
+}
+
+function reloadPage() {
+  updateTotalPrice();
+}
+
+function minus() {
+  var numberOfPerson = document.getElementById('number_of_person');
+  var value = parseInt(numberOfPerson.value) || 1;
+
+  if (value > 1) {
+    numberOfPerson.value = value - 1;
+    updateTotalPrice();
+  }
+}
+
+function plus() {
+  var numberOfPerson = document.getElementById('number_of_person');
+  var value = parseInt(numberOfPerson.value) || 1;
+  numberOfPerson.value = value + 1;
+  updateTotalPrice();
+}
+</script>
+
+{% endblock %}

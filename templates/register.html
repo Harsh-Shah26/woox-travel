@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<section class="auth-hero-section">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-10">
+        <div class="auth-wrapper">
+          <div class="row g-0 align-items-stretch">
+
+            <div class="col-lg-5">
+              <div class="auth-side-panel">
+                <span class="auth-badge">Join Wanderlust Haven</span>
+                <h2>Create Your Travel Account</h2>
+                <p>
+                  Sign up to explore destinations, discover top places, and plan your next journey with ease.
+                </p>
+
+                <ul class="auth-feature-list">
+                  <li><i class="fa fa-check-circle"></i> Discover cities across India</li>
+                  <li><i class="fa fa-check-circle"></i> Explore curated travel destinations</li>
+                  <li><i class="fa fa-check-circle"></i> Access offers and trip details</li>
+                </ul>
+
+                <div class="auth-side-image">
+                  <img src="{% static 'assets/images/about-left-image.jpg' %}" alt="Travel">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-7">
+              <div class="auth-form-panel">
+                <div class="auth-heading">
+                  <h3>Register</h3>
+                  <p>Create your account and start exploring.</p>
+                </div>
+
+                <form action="" method="post" class="auth-form-grid">
+                  {% csrf_token %}
+
+                  {% if msg %}
+                  <div class="alert {% if id == 1 %}alert-danger{% else %}alert-success{% endif %} auth-alert" id="alert">
+                    {{ msg }}
+                  </div>
+                  {% endif %}
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="auth-form-group">
+                        <label>Username</label>
+                        {{ form.username }}
+                        {% if form.errors.username %}
+                        <small class="auth-error">{{ form.errors.username }}</small>
+                        {% endif %}
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="auth-form-group">
+                        <label>Email Address</label>
+                        {{ form.email }}
+                        {% if form.errors.email %}
+                        <small class="auth-error">{{ form.errors.email }}</small>
+                        {% endif %}
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="auth-form-group">
+                        <label>First Name</label>
+                        {{ form.first_name }}
+                        {% if form.errors.first_name %}
+                        <small class="auth-error">{{ form.errors.first_name }}</small>
+                        {% endif %}
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="auth-form-group">
+                        <label>Last Name</label>
+                        {{ form.last_name }}
+                        {% if form.errors.last_name %}
+                        <small class="auth-error">{{ form.errors.last_name }}</small>
+                        {% endif %}
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="auth-form-group">
+                        <label>Password</label>
+                        {{ form.password1 }}
+                        {% if form.errors.password1 %}
+                        <small class="auth-error">{{ form.errors.password1 }}</small>
+                        {% endif %}
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="auth-form-group">
+                        <label>Confirm Password</label>
+                        {{ form.password2 }}
+                        {% if form.errors.password2 %}
+                        <small class="auth-error">{{ form.errors.password2 }}</small>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="auth-actions">
+                    <button type="submit" class="auth-btn-primary">Create Account</button>
+                    <a href="{% url 'login' %}" class="auth-login-link">Already registered? Login</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

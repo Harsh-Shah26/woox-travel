@@ -1,0 +1,16 @@
+1)CHECK ALL PRICE IN SHELL
+from cities_towns_about.models import AboutCityTown
+
+for c in AboutCityTown.objects.all():
+    print(c.act_city_name, c.act_price, c.act_tour_duration) 
+
+
+2) ALL USERS EMAIL
+
+from django.contrib.auth.models import User
+
+for u in User.objects.all():
+    print(f"Username: {u.username} | Email: {u.email}")
+
+
+3)

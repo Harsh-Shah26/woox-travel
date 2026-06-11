@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Reservation Confirmed</title>
+</head>
+<body style="margin:0;padding:0;background:#f4f7fb;font-family:Arial,Helvetica,sans-serif;">
+  <div style="max-width:700px;margin:24px auto;background:#ffffff;border-radius:18px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,0.08);">
+
+    <div style="background:linear-gradient(135deg,#1eaaf1,#007bff);padding:28px 24px;text-align:center;color:#ffffff;">
+      <h1 style="margin:0;font-size:30px;">WoOx Travel</h1>
+      <p style="margin:8px 0 0;font-size:15px;">Reservation Confirmation</p>
+    </div>
+
+    {% if hero_cid %}
+    <div style="background:#eaf6ff;text-align:center;">
+      <img src="cid:{{ hero_cid }}" alt="{{ reservation.city }}" style="display:block;width:100%;max-height:320px;object-fit:cover;">
+    </div>
+    {% endif %}
+
+    <div style="padding:32px 28px;color:#333333;">
+      <h2 style="margin-top:0;font-size:24px;">Hello {{ reservation.user_name }},</h2>
+      <p style="font-size:15px;line-height:1.8;margin-bottom:18px;">
+        Your reservation has been successfully created. Thank you for choosing <strong>WoOx Travel</strong>.
+      </p>
+
+      <div style="background:#f8fbff;border:1px solid #dcecff;border-radius:14px;padding:18px 20px;margin:24px 0;">
+        <h3 style="margin:0 0 14px;font-size:18px;color:#0d6efd;">Reservation Details</h3>
+
+        <table style="width:100%;border-collapse:collapse;font-size:14px;">
+          <tr>
+            <td style="padding:10px 0;font-weight:bold;width:42%;">Reservation ID</td>
+            <td style="padding:10px 0;">{{ reservation.reservation_id }}</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 0;font-weight:bold;">Destination</td>
+            <td style="padding:10px 0;">{{ reservation.city }}</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 0;font-weight:bold;">Check-in Date</td>
+            <td style="padding:10px 0;">{{ reservation.check_in_date }}</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 0;font-weight:bold;">Duration</td>
+            <td style="padding:10px 0;">{{ reservation.tour_duration }}</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 0;font-weight:bold;">Guests</td>
+            <td style="padding:10px 0;">{{ reservation.number_of_guest }}</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 0;font-weight:bold;">Price Per Person</td>
+            <td style="padding:10px 0;">₹{{ reservation.price_per_person }}</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 0;font-weight:bold;">Total Price</td>
+            <td style="padding:10px 0;"><strong>₹{{ reservation.total_price }}</strong></td>
+          </tr>
+          <tr>
+            <td style="padding:10px 0;font-weight:bold;">Registered Email</td>
+            <td style="padding:10px 0;">{{ reservation.email }}</td>
+          </tr>
+        </table>
+      </div>
+
+      {% if reservation.tour_description %}
+      <div style="margin-top:24px;">
+        <h3 style="font-size:18px;color:#0d6efd;margin-bottom:10px;">Package Summary</h3>
+        <div style="font-size:14px;line-height:1.8;color:#555555;">
+          {{ reservation.tour_description|safe }}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if gallery_cids %}
+      <div style="margin-top:28px;">
+        <h3 style="font-size:18px;color:#0d6efd;margin-bottom:12px;">Destination Preview</h3>
+        <table style="width:100%;border-collapse:collapse;">
+          <tr>
+            {% for item in gallery_cids %}
+            <td style="padding:6px;width:50%;">
+              <img src="cid:{{ item.cid }}" alt="Gallery Image {{ forloop.counter }}"
+                   style="width:100%;height:180px;object-fit:cover;border-radius:12px;display:block;">
+            </td>
+            {% endfor %}
+          </tr>
+        </table>
+      </div>
+      {% endif %}
+
+      <div style="margin-top:28px;padding:18px;background:#fff8e6;border:1px solid #ffe4a3;border-radius:12px;">
+        <p style="margin:0;font-size:14px;line-height:1.8;color:#6b5b00;">
+          Please keep this email for your records. You can also view your reservation details inside your WoOx Travel account.
+        </p>
+      </div>
+
+      <p style="margin-top:28px;font-size:15px;line-height:1.8;">
+        Regards,<br>
+        <strong>WoOx Travel Team</strong>
+      </p>
+    </div>
+
+    <div style="background:#f8f9fa;padding:16px 22px;text-align:center;color:#777;font-size:13px;">
+      © 2026 WoOx Travel. Travel smarter, travel better.
+    </div>
+  </div>
+</body>
+</html>

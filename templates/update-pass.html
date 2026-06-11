@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br><br><br><br>
+<h3 class="text-center text-primary">Update password</h3>
+<br>
+<div class="container">
+    <div class="row">
+        <form action="" method="post">
+
+            {% csrf_token %}
+
+            {% if msg %}
+            <div class="alert alert-success">
+                {{ msg }}
+            </div>
+            {% endif %}
+            
+            <div class="form-group">
+                <label for="">New Password</label>
+                {{form.password1}}
+                {% if form.errors.password1 %}
+                <label class="text-danger">{{form.errors.password1}}</label>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="">Confirm Password</label>
+                {{form.password2}}
+                {% if form.errors.password2 %}
+                <label class="text-danger">{{form.errors.password2}}</label>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-dark my-3">Update</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+
+
+

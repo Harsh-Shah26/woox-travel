@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<section class="auth-hero-section">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-10">
+        <div class="auth-wrapper">
+          <div class="row g-0 align-items-stretch">
+
+            <div class="col-lg-5">
+              <div class="auth-side-panel">
+                <span class="auth-badge">Password Recovery</span>
+                <h2>Reset Your Password</h2>
+                <p>
+                  Enter your registered email address to receive an OTP. Then verify the OTP to set a new password securely.
+                </p>
+
+                <ul class="auth-feature-list">
+                  <li><i class="fa fa-check-circle"></i> Secure OTP verification</li>
+                  <li><i class="fa fa-check-circle"></i> Quick password reset</li>
+                  <li><i class="fa fa-check-circle"></i> Safe account recovery</li>
+                </ul>
+
+                <div class="auth-side-image">
+                  <img src="{% static 'assets/images/about-left-image.jpg' %}" alt="Travel">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-7">
+              <div class="auth-form-panel">
+                <div class="auth-heading">
+                  <h3>Forgot Password</h3>
+                  <p>Enter your email to receive OTP, then verify it below.</p>
+                </div>
+
+                {% if msg %}
+                <div class="alert alert-success auth-alert">
+                  {{ msg }}
+                </div>
+                {% endif %}
+
+                {% if msg_ %}
+                <div class="alert alert-danger auth-alert">
+                  {{ msg_ }}
+                </div>
+                {% endif %}
+
+                <form action="{% url 'forgot' %}" method="post">
+                  {% csrf_token %}
+                  <div class="auth-form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="mail" class="form-control" placeholder="Enter your registered email" required>
+                  </div>
+
+                  <div class="auth-actions mb-4">
+                    <button type="submit" class="auth-btn-primary">Send OTP</button>
+                  </div>
+                </form>
+
+                <hr class="my-4">
+
+                <form action="{% url 'opt-validate' %}" method="post">
+                  {% csrf_token %}
+                  <div class="auth-form-group">
+                    <label>Enter OTP</label>
+                    <input type="text" name="otp" pattern="\d{4}" maxlength="4" class="form-control" placeholder="Enter 4-digit OTP" required>
+                  </div>
+
+                  <div class="auth-actions">
+                    <button type="submit" class="auth-btn-primary">Verify OTP</button>
+                    <a href="{% url 'login' %}" class="auth-login-link">Back to Login</a>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

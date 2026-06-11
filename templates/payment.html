@@ -1,0 +1,351 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<br><br><br><br>
+
+<style>
+  .payment-page {
+    background: #f7fbff;
+    padding: 40px 0 60px;
+  }
+
+  .payment-header {
+    text-align: center;
+    margin-bottom: 35px;
+  }
+
+  .payment-header h2 {
+    font-weight: 700;
+    color: #1e3a5f;
+    margin-bottom: 10px;
+  }
+
+  .payment-header p {
+    color: #6c757d;
+    margin-bottom: 0;
+    font-size: 15px;
+  }
+
+  .payment-card,
+  .summary-card {
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 28px;
+    height: 100%;
+  }
+
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e3a5f;
+    margin-bottom: 18px;
+  }
+
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eef2f6;
+    font-size: 15px;
+  }
+
+  .summary-item:last-child {
+    border-bottom: none;
+  }
+
+  .summary-label {
+    color: #6c757d;
+    font-weight: 500;
+  }
+
+  .summary-value {
+    color: #1e3a5f;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .pay-amount-box {
+    background: linear-gradient(135deg, #1eaaf1, #007bff);
+    border-radius: 16px;
+    padding: 22px;
+    color: #ffffff;
+    margin-top: 22px;
+  }
+
+  .pay-amount-box small {
+    display: block;
+    opacity: 0.9;
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+
+  .pay-amount-box h3 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  .secure-note {
+    background: #eef8ff;
+    border: 1px solid #d8ecff;
+    border-radius: 14px;
+    padding: 14px 16px;
+    color: #1e3a5f;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .payment-method-box {
+    background: #f8fbff;
+    border: 1px solid #e3eef9;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+
+  .payment-method-box label {
+    font-weight: 600;
+    color: #1e3a5f;
+    margin-right: 24px;
+    cursor: pointer;
+  }
+
+  .payment-method-box input[type="radio"] {
+    margin-right: 8px;
+  }
+
+  .form-label {
+    font-weight: 600;
+    color: #1e3a5f;
+    margin-bottom: 8px;
+  }
+
+  .form-control {
+    border-radius: 12px;
+    min-height: 48px;
+    border: 1px solid #d9e2ec;
+  }
+
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #1eaaf1;
+  }
+
+  .trust-box {
+    margin-top: 24px;
+    padding: 18px;
+    background: #fffaf0;
+    border: 1px solid #ffe4b5;
+    border-radius: 14px;
+  }
+
+  .trust-box h6 {
+    font-weight: 700;
+    color: #8a5a00;
+    margin-bottom: 10px;
+  }
+
+  .trust-box ul {
+    margin: 0;
+    padding-left: 18px;
+    color: #6c5a2d;
+    font-size: 14px;
+  }
+
+  .pay-btn {
+    width: 100%;
+    min-height: 52px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 14px;
+    margin-top: 10px;
+  }
+
+  .small-note {
+    font-size: 13px;
+    color: #6c757d;
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  @media (max-width: 991px) {
+    .payment-card,
+    .summary-card {
+      margin-bottom: 24px;
+    }
+  }
+</style>
+
+<section class="payment-page">
+  <div class="container">
+    <div class="payment-header">
+      <h2>Complete Your Reservation Payment</h2>
+      <p>Review your booking details and proceed with a secure payment to confirm your reservation.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Left Side: Booking Summary -->
+      <div class="col-lg-5">
+        <div class="summary-card">
+          <h4 class="section-title">Booking Summary</h4>
+
+          <div class="summary-item">
+            <span class="summary-label">Reservation Number</span>
+            <span class="summary-value">{{ r.reservation_id }}</span>
+          </div>
+
+          <div class="summary-item">
+            <span class="summary-label">Destination</span>
+            <span class="summary-value">{{ r.city }}</span>
+          </div>
+
+          <div class="summary-item">
+            <span class="summary-label">Guest Name</span>
+            <span class="summary-value">{{ r.user_name }}</span>
+          </div>
+
+          <div class="summary-item">
+            <span class="summary-label">Guests</span>
+            <span class="summary-value">{{ r.number_of_guest }}</span>
+          </div>
+
+          <div class="summary-item">
+            <span class="summary-label">Check-in Date</span>
+            <span class="summary-value">{{ r.check_in_date }}</span>
+          </div>
+
+          <div class="summary-item">
+            <span class="summary-label">Tour Duration</span>
+            <span class="summary-value">{{ r.tour_duration }}</span>
+          </div>
+
+          <div class="summary-item">
+            <span class="summary-label">Price Per Person</span>
+            <span class="summary-value">₹{{ r.price_per_person }}</span>
+          </div>
+
+          <div class="pay-amount-box">
+            <small>Total Payable Amount</small>
+            <h3>₹{{ r.total_price }}</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Side: Payment Form -->
+      <div class="col-lg-7">
+        <div class="payment-card">
+          <h4 class="section-title">Secure Payment</h4>
+
+          <div class="secure-note">
+            Payment will be accepted by credit card and debit card. Please enter your card details carefully to complete the booking.
+          </div>
+
+          <form action="{% url 'paynow' r.id %}" method="post">
+            {% csrf_token %}
+
+            <input type="hidden" name="res-num" value="{{ r.reservation_id }}">
+            <input type="hidden" name="res-id" value="{{ r.id }}">
+            <input type="hidden" name="res-user-name" value="{{ r.username }}">
+            <input type="hidden" name="res-city" value="{{ r.city }}">
+            <input type="hidden" name="user-total-payment" value="{{ r.total_price }}">
+
+            <div class="payment-method-box">
+              <label>
+                <input type="radio" name="card" value="Debit card" required>
+                Debit Card
+              </label>
+
+              <label>
+                <input type="radio" name="card" value="Credit card" required>
+                Credit Card
+              </label>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Card Number</label>
+              <input
+                type="text"
+                name="card_num"
+                class="form-control"
+                pattern="\d{12}"
+                maxlength="12"
+                placeholder="Enter 12-digit card number"
+                title="Enter a valid 12-digit card number"
+                required
+              >
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Expiry Date</label>
+                <input
+                  type="date"
+                  name="card_exp-date"
+                  class="form-control"
+                  title="Select your card expiry date"
+                  required
+                >
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label class="form-label">CVV</label>
+                <input
+                  type="text"
+                  name="card_cvv"
+                  class="form-control"
+                  pattern="\d{3}"
+                  maxlength="3"
+                  placeholder="Enter CVV"
+                  title="Enter a valid 3-digit CVV"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="trust-box">
+              <h6>Why pay here?</h6>
+              <ul>
+                <li>Your reservation amount is linked to the selected destination and guest count.</li>
+                <li>Payment confirmation is stored against your reservation record.</li>
+                <li>After successful payment, you can view your booking receipt instantly.</li>
+              </ul>
+            </div>
+
+            <button type="submit" class="btn btn-primary pay-btn">
+              Pay ₹{{ r.total_price }} Securely
+            </button>
+
+            <p class="small-note">
+              By proceeding, you confirm that the booking details entered by you are correct.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    {% if messages %}
+      {% for message in messages %}
+        Swal.fire({
+          title: "{{ message.tags|title }}",
+          text: "{{ message }}",
+          icon: "{{ message.tags }}",
+          confirmButtonText: "OK"
+        }).then((result) => {
+          if (result.isConfirmed && "{{ message.tags }}" === "success") {
+            window.location.href = "{% url 'payment_successful' r.id %}";
+          }
+        });
+      {% endfor %}
+    {% endif %}
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% endblock content %}

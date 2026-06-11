@@ -1,0 +1,18 @@
+WoOx Travel - Reservation Confirmation
+
+Hello {{ reservation.user_name }},
+
+Your reservation has been successfully created.
+
+Reservation Details
+-------------------
+Reservation ID: {{ reservation.reservation_id }}
+Destination: {{ reservation.city }}
+Check-in Date: {{ reservation.check_in_date }}
+Duration: {{ reservation.tour_duration }}
+Guests: {{ reservation.number_of_guest }}
+Price Per Person: ₹{{ reservation.price_per_person }}
+Total Price: ₹{{ reservation.total_price }}
+Registered Email: {{ reservation.email }}
+
+Thank you for choosing WoOx Travel.

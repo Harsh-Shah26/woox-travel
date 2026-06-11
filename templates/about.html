@@ -1,0 +1,245 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- ***** About Hero Start ***** -->
+<section class="about-hero-clean">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="about-hero-box text-center">
+          <span class="about-badge">About Wanderlust Haven</span>
+          <h1>Your Trusted Travel Partner for Exploring India</h1>
+          <p>
+            Woox Travel is built for travelers who want more than just a destination list.
+            Explore iconic cities, hidden gems, and exciting travel offers across India — all in one place.
+          </p>
+          <div class="hero-actions">
+            <div class="main-button">
+              <a href="#cities-section">Explore Cities</a>
+            </div>
+            <div class="border-button">
+              <a href="{% url 'reservation' %}">Plan Your Trip</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ***** About Hero End ***** -->
+
+
+<!-- ***** Cities Slider Start ***** -->
+<div class="cities-town about-page-section cities-light-section" id="cities-section">
+  <div class="container">
+    <div class="row">
+      <div class="slider-content">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="section-heading text-center">
+              <h2>Explore Our <em>Cities &amp; Destinations</em></h2>
+              <p>
+                Discover beautiful places across India through a dynamic city showcase powered by your database.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <div class="owl-cites-town owl-carousel">
+  {% for i in about_city_town_data %}
+  <div class="item">
+    <div class="thumb">
+      <a href="{% url 'city_detail' i.id %}">
+        <img src="{{ i.act_img.url }}" alt="{{ i.act_city_name }}">
+        <h4>{{ i.act_city_name }}</h4>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ***** Cities Slider End ***** -->
+
+
+<!-- ***** Feature Boxes Start ***** -->
+<section class="about-features-section about-page-section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="about-mini-card">
+          <div class="icon">
+            <i class="fa fa-map-marker"></i>
+          </div>
+          <h4>Explore Top Destinations</h4>
+          <p>From royal cities to beaches and mountain escapes, find places worth visiting.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="about-mini-card">
+          <div class="icon">
+            <i class="fa fa-tags"></i>
+          </div>
+          <h4>Weekly Travel Offers</h4>
+          <p>Grab exciting deals and affordable packages curated for every kind of traveler.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-12">
+        <div class="about-mini-card">
+          <div class="icon">
+            <i class="fa fa-plane"></i>
+          </div>
+          <h4>Easy Travel Planning</h4>
+          <p>Browse destinations, compare options, and move directly toward booking.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ***** Feature Boxes End ***** -->
+
+
+<!-- ***** Weekly Offers Start ***** -->
+<div class="weekly-offers about-page-section offers-dark-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="section-heading text-center">
+          <h2>Best Weekly Offers In Each City</h2>
+          <p>
+            Discover handpicked travel offers that help you enjoy more while spending less.
+            Great stays, memorable experiences, and exciting destinations — all in one section.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="owl-weekly-offers owl-carousel">
+
+          {% for i in about_best_offer_data %}
+          <div class="item">
+            <div class="thumb">
+              <img src="{{ i.boa_img.url }}" alt="{{ i.boa_city_name }}">
+              <div class="text">
+                <h4>{{ i.boa_city_name }}<br><span><i class="fa fa-users"></i> {{ i.boa_check_ins }} Check Ins</span></h4>
+                <h6>₹{{ i.boa_price }}<br><span>/person</span></h6>
+                <div class="line-dec"></div>
+                <ul>
+                  <li>Deal Includes:</li>
+                  <li><i class="fa fa-taxi"></i> {{ i.boa_tour_duratrions }} Trip + Hotel Included</li>
+                  <li><i class="fa fa-plane"></i> Airplane Bill Included</li>
+                  <li><i class="fa fa-building"></i> Daily Places Visit</li>
+                </ul>
+                <div class="main-button">
+                  <a href="{% url 'reservation' %}#reservation-form"
+                     onclick="UserReservation('{{ i.boa_city_name }}','{{ i.boa_price }}','{{ i.boa_tour_duratrions }}','{{ i.boa_tour_description|escapejs }}')">
+                    Make a Reservation
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ***** Weekly Offers End ***** -->
+
+
+<!-- ***** Who We Are Start ***** -->
+<section class="about-story-section about-page-section who-dark-section">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <div class="about-story-content">
+          <div class="section-heading">
+            <h2>Who We Are</h2>
+            <p>
+              Wanderlust Haven is a travel platform created to make exploring India simple,
+              inspiring, and accessible. Whether you are planning your next journey or just
+              discovering new destinations, our platform helps you explore cities, compare offers,
+              and move toward booking with ease.
+            </p>
+          </div>
+
+          <div class="about-feature-list">
+            <div class="about-feature-item">
+              <i class="fa fa-check-circle"></i>
+              <span>Browse destinations through a dynamic database-powered city showcase</span>
+            </div>
+            <div class="about-feature-item">
+              <i class="fa fa-check-circle"></i>
+              <span>Discover curated weekly offers for memorable and affordable travel</span>
+            </div>
+            <div class="about-feature-item">
+              <i class="fa fa-check-circle"></i>
+              <span>Enjoy a smoother and more user-friendly travel planning experience</span>
+            </div>
+          </div>
+
+          <div class="main-button mt-4">
+            <a href="{% url 'deals' %}">View Latest Deals</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="about-story-image-wrap">
+          {% if about_city_town_data %}
+            <img src="{{ about_city_town_data.0.act_img.url }}" alt="Travel destination" class="about-story-main-img">
+          {% else %}
+            <img src="{% static 'assets/images/country-01.jpg' %}" alt="Travel destination" class="about-story-main-img">
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ***** Who We Are End ***** -->
+
+
+<!-- ***** CTA Start ***** -->
+<div class="call-to-action about-page-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2>Ready To Start Your Next Journey?</h2>
+        <h4>Choose a destination, explore the details, and reserve your trip today.</h4>
+      </div>
+      <div class="col-lg-4">
+        <div class="border-button">
+          <a href="{% url 'reservation' %}">Book Yours Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ***** CTA End ***** -->
+
+
+<script>
+  function UserReservation(cityname, city_price, tour_duration, td) {
+    localStorage.setItem('selectcity', cityname);
+    localStorage.setItem('city_price', city_price);
+    localStorage.setItem('tour_duration', tour_duration);
+    localStorage.setItem('t_des', td);
+    window.location.href = "{% url 'reservation' %}#reservation-form";
+  }
+</script>
+
+{% endblock %}
