@@ -443,9 +443,10 @@ def user_reservation_post(request):
             except Exception as image_error:
                 print("Image attach error:", image_error)
 
-        sendMail.send()
+        # # Email disabled for Render demo deployment
+        # sendMail.send()
 
-        messages.success(request, 'Reservation Successful! Confirmation email sent.')
+        messages.success(request, 'Reservation Successful! Booking created successfully.')
 
     except Exception as e:
         print("Reservation email error:", e)
