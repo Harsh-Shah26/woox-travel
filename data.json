@@ -1,0 +1,643 @@
+[
+{
+  "model": "cities_towns_about.aboutcitytown",
+  "pk": 1,
+  "fields": {
+    "act_img": "about_cities_towns/1.jpg",
+    "act_img2": "about_cities_towns/2.avif",
+    "act_img3": "about_cities_towns/3.jpg",
+    "act_img4": "about_cities_towns/4.jpg",
+    "act_img5": "about_cities_towns/5.jpg",
+    "act_city_name": "MOUNT ABU",
+    "act_price": "7500.00",
+    "act_tour_duration": "2 NIGHTS / 3 DAYS",
+    "act_tour_description": "\n<p><strong>Package Description for Mount Abu</strong></p>\n<p>Enjoy a refreshing 2 Nights / 3 Days Mount Abu trip from Ahmedabad with hotel stay, breakfast, selected meals, and local sightseeing. This package uses an approximate real-world static price for academic demonstration and reflects a practical market-based travel estimate.</p>\n"
+  }
+},
+{
+  "model": "cities_towns_about.aboutcitytown",
+  "pk": 2,
+  "fields": {
+    "act_img": "about_cities_towns/3_695W6qB.jpg",
+    "act_img2": "about_cities_towns/5_4c9u3jh.jpg",
+    "act_img3": "about_cities_towns/2_UdOz9h0.avif",
+    "act_img4": "about_cities_towns/4_eJUXtRs.jpg",
+    "act_img5": "about_cities_towns/1_fF5Yxmd.jpg",
+    "act_city_name": "GOA",
+    "act_price": "10999.00",
+    "act_tour_duration": "4 NIGHTS / 5 DAYS",
+    "act_tour_description": "\n<p><strong>Package Description for Goa</strong></p>\n<p>Enjoy a 4 Nights / 5 Days Goa trip from Ahmedabad with hotel stay, breakfast, selected local sightseeing, and pickup/drop support. This package uses an approximate real-world static price for academic demonstration based on current market package ranges.</p>\n"
+  }
+},
+{
+  "model": "cities_towns_about.aboutcitytown",
+  "pk": 5,
+  "fields": {
+    "act_img": "about_cities_towns/3_Vc7ZvP1.jpg",
+    "act_img2": "about_cities_towns/2_vrB4Bq8.jpg",
+    "act_img3": "about_cities_towns/3_7RHw1TB.jpg",
+    "act_img4": "about_cities_towns/4_5Hl5aAi.jpg",
+    "act_img5": "about_cities_towns/5_tyI6L5E.jpg",
+    "act_city_name": "KASHMIR",
+    "act_price": "15999.00",
+    "act_tour_duration": "4 NIGHTS / 5 DAYS",
+    "act_tour_description": "\n<p><strong>Package Description for Kashmir</strong></p>\n<p>Experience a 4 Nights / 5 Days Kashmir trip from Ahmedabad with hotel stay, breakfast, selected meals, and sightseeing across scenic valleys, lakes, and mountain destinations. This package uses a realistic static price for academic demonstration based on approximate market travel and accommodation costs.</p>\n"
+  }
+},
+{
+  "model": "cities_towns_about.aboutcitytown",
+  "pk": 9,
+  "fields": {
+    "act_img": "about_cities_towns/jalmahal_oQQvZeT.jpg",
+    "act_img2": "about_cities_towns/jaipur_LHvDw83.avif",
+    "act_img3": "about_cities_towns/city_jaipur.avif",
+    "act_img4": "about_cities_towns/city_jaipurr.jpg",
+    "act_img5": "",
+    "act_city_name": "JAIPUR",
+    "act_price": "9500.00",
+    "act_tour_duration": "3 NIGHTS / 4 DAYS",
+    "act_tour_description": "\n<p><strong>Package Description for Jaipur</strong></p>\n<p>Experience a 3 Nights / 4 Days Jaipur trip from Ahmedabad including hotel stay, breakfast, and local sightseeing such as Hawa Mahal, Amer Fort, and City Palace. This package uses a realistic static price based on average travel and accommodation costs.</p>\n"
+  }
+},
+{
+  "model": "cities_towns_about.aboutcitytown",
+  "pk": 12,
+  "fields": {
+    "act_img": "about_cities_towns/2.jpg",
+    "act_img2": "about_cities_towns/3_2qpR4QM.jpg",
+    "act_img3": "about_cities_towns/1_ghqtN9l.jpg",
+    "act_img4": "about_cities_towns/4_v6bQMq5.jpg",
+    "act_img5": "about_cities_towns/5.avif",
+    "act_city_name": "KOLKATA",
+    "act_price": "13999.00",
+    "act_tour_duration": "4 NIGHTS / 5 DAYS",
+    "act_tour_description": "\n<p><strong>Package Description for Kolkata</strong></p>\n<p>Experience a 4 Nights / 5 Days Kolkata trip from Ahmedabad with hotel stay, breakfast, and sightseeing covering major cultural and city attractions. This package uses a realistic static price for academic demonstration based on approximate market travel and accommodation costs.</p>\n"
+  }
+},
+{
+  "model": "cities_towns_about.aboutcitytown",
+  "pk": 13,
+  "fields": {
+    "act_img": "about_cities_towns/1_FtXIvTw.jpg",
+    "act_img2": "about_cities_towns/2_Rimmhvl.jpg",
+    "act_img3": "about_cities_towns/3_UMQk3J3.jpg",
+    "act_img4": "about_cities_towns/4_GexibIT.jpg",
+    "act_img5": "about_cities_towns/5_Onv4IBr.jpg",
+    "act_city_name": "VARANASI",
+    "act_price": "14999.00",
+    "act_tour_duration": "4 NIGHTS / 5 DAYS",
+    "act_tour_description": "\n<p><strong>Package Description for Varanasi</strong></p>\n<p>Experience a 4 Nights / 5 Days Varanasi trip from Ahmedabad with hotel stay, breakfast, and sightseeing covering ghats, temples, and important cultural landmarks. This package uses a realistic static price for academic demonstration based on approximate travel and accommodation costs.</p>\n"
+  }
+},
+{
+  "model": "cities_towns_about.aboutcitytown",
+  "pk": 14,
+  "fields": {
+    "act_img": "about_cities_towns/1_WdogWjt.jpg",
+    "act_img2": "about_cities_towns/2_JMtxpt8.jpg",
+    "act_img3": "about_cities_towns/3.avif",
+    "act_img4": "about_cities_towns/4_pXr9Q5W.jpg",
+    "act_img5": "about_cities_towns/5_iQu3o0d.jpg",
+    "act_city_name": "UDAIPUR",
+    "act_price": "8500.00",
+    "act_tour_duration": "2 NIGHTS / 3 DAYS",
+    "act_tour_description": "\n<p><strong>Package Description for Udaipur</strong></p>\n<p>Enjoy a beautiful 2 Nights / 3 Days trip to Udaipur from Ahmedabad with hotel stay, breakfast, and local sightseeing including Lake Pichola, City Palace, and nearby attractions. This package uses realistic pricing based on average travel and accommodation costs.</p>\n"
+  }
+},
+{
+  "model": "cities_towns_about.aboutcitytown",
+  "pk": 15,
+  "fields": {
+    "act_img": "about_cities_towns/5_XiWUtc9.jpg",
+    "act_img2": "about_cities_towns/2_5oBX3Hr.jpg",
+    "act_img3": "about_cities_towns/3_NcUkEpI.jpg",
+    "act_img4": "about_cities_towns/4_MpFbMz2.jpg",
+    "act_img5": "about_cities_towns/1_DpErsOw.jpg",
+    "act_city_name": "MANALI",
+    "act_price": "17500.00",
+    "act_tour_duration": "5 NIGHTS / 6 DAYS",
+    "act_tour_description": "\n<p><strong>Package Description for Manali</strong></p>\n<p>Experience a 5 Nights / 6 Days Manali trip from Ahmedabad including hotel stay, meals, and sightseeing such as Solang Valley and nearby attractions. This package reflects a higher cost due to long-distance travel and premium mountain destination experience.</p>\n"
+  }
+},
+{
+  "model": "cities_towns_about.aboutcitytown",
+  "pk": 16,
+  "fields": {
+    "act_img": "about_cities_towns/sea_link.jpg",
+    "act_img2": "about_cities_towns/1_1qKQMzW.jpg",
+    "act_img3": "about_cities_towns/3_x4oL8A6.jpg",
+    "act_img4": "about_cities_towns/5_9Mi0oXy.jpg",
+    "act_img5": "about_cities_towns/2_RQFyow6.jpg",
+    "act_city_name": "Mumbai",
+    "act_price": "12999.00",
+    "act_tour_duration": "3 NIGHTS / 4 DAYS",
+    "act_tour_description": "\n<p><strong>Package Description for Mumbai</strong></p>\n<p>Enjoy a 3 Nights / 4 Days Mumbai trip from Ahmedabad with hotel stay, breakfast, and local sightseeing covering major city attractions. This package uses a realistic static price for academic demonstration based on approximate market travel and accommodation costs.</p>\n"
+  }
+},
+{
+  "model": "cities_towns_about.aboutcitytown",
+  "pk": 17,
+  "fields": {
+    "act_img": "about_cities_towns/2_yqQejPS.jpg",
+    "act_img2": "about_cities_towns/3_HnPskl5.jpg",
+    "act_img3": "about_cities_towns/4_A8D0GTz.jpg",
+    "act_img4": "about_cities_towns/5_9WTZ4ao.jpg",
+    "act_img5": "about_cities_towns/1_lBZuOL5.jpg",
+    "act_city_name": "RISHIKESH",
+    "act_price": "11999.00",
+    "act_tour_duration": "3 NIGHTS / 4 DAYS",
+    "act_tour_description": "\n<p><strong>Package Description for Rishikesh</strong></p>\n<p>Enjoy a 3 Nights / 4 Days Rishikesh trip from Ahmedabad with hotel stay, breakfast, and sightseeing around riverfront attractions, spiritual landmarks, and adventure spots. This package uses a realistic static price for academic demonstration based on approximate travel and accommodation costs.</p>\n"
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 1,
+  "fields": {
+    "city": 5,
+    "place_name": "Gulmarg",
+    "place_image": "city_places/2.jpg",
+    "place_description": "A scenic hill destination known for snow, meadows, and mountain views."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 2,
+  "fields": {
+    "city": 5,
+    "place_name": "Pahalgam",
+    "place_image": "city_places/c2.jpg",
+    "place_description": "A peaceful valley surrounded by mountains, known for its scenic beauty and riverside views."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 3,
+  "fields": {
+    "city": 5,
+    "place_name": "Sonmarg",
+    "place_image": "city_places/kashmir_home_page.jpg",
+    "place_description": "A breathtaking destination with glaciers, snow-covered peaks, and stunning natural landscapes."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 4,
+  "fields": {
+    "city": 5,
+    "place_name": "Dal Lake",
+    "place_image": "city_places/3.jpg",
+    "place_description": "Famous for its houseboats and shikara rides, offering a unique and serene experience."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 5,
+  "fields": {
+    "city": 16,
+    "place_name": "Gateway of India",
+    "place_image": "city_places/c1.jpeg",
+    "place_description": "A historic landmark facing the Arabian Sea."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 6,
+  "fields": {
+    "city": 16,
+    "place_name": "Marine Drive",
+    "place_image": "city_places/c2_M81HsF2.jpg",
+    "place_description": "Famous for sunset views and city lights."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 7,
+  "fields": {
+    "city": 16,
+    "place_name": "Juhu Beach",
+    "place_image": "city_places/c3_QTXWYWZ.jpg",
+    "place_description": "Popular beach known for street food."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 8,
+  "fields": {
+    "city": 16,
+    "place_name": "Elephanta Caves",
+    "place_image": "city_places/c1_wEI2ttg.jpg",
+    "place_description": "Ancient caves with historical importance."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 9,
+  "fields": {
+    "city": 9,
+    "place_name": "Hawa Mahal",
+    "place_image": "city_places/mahel_home_page.webp",
+    "place_description": "Iconic palace known for its unique honeycomb design."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 10,
+  "fields": {
+    "city": 9,
+    "place_name": "Amber Fort",
+    "place_image": "city_places/c2_QqvUhmW.jpg",
+    "place_description": "A grand fort with stunning architecture and views."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 11,
+  "fields": {
+    "city": 9,
+    "place_name": "City Palace",
+    "place_image": "city_places/c3.jpg",
+    "place_description": "A royal residence showcasing rich heritage."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 12,
+  "fields": {
+    "city": 9,
+    "place_name": "Jal Mahal",
+    "place_image": "city_places/c4_2k7KpU1.jpg",
+    "place_description": "A beautiful palace in the middle of a lake."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 13,
+  "fields": {
+    "city": 17,
+    "place_name": "Laxman Jhula",
+    "place_image": "city_places/c1_3ENFcbm.jpg",
+    "place_description": "A famous hanging bridge over the Ganges river."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 14,
+  "fields": {
+    "city": 17,
+    "place_name": "Ram Jhula",
+    "place_image": "city_places/1.jpg",
+    "place_description": "A popular spot connecting temples and ashrams."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 15,
+  "fields": {
+    "city": 17,
+    "place_name": "Triveni Ghat",
+    "place_image": "city_places/c3.jpeg",
+    "place_description": "Known for the evening Ganga Aarti."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 16,
+  "fields": {
+    "city": 17,
+    "place_name": "River Rafting",
+    "place_image": "city_places/c4.webp",
+    "place_description": "Perfect for adventure and rafting experiences."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 17,
+  "fields": {
+    "city": 14,
+    "place_name": "City Palace",
+    "place_image": "city_places/c1_ca7vH3Z.jpg",
+    "place_description": "A magnificent palace with royal architecture."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 18,
+  "fields": {
+    "city": 14,
+    "place_name": "Lake Pichola",
+    "place_image": "city_places/c2_FpA9Xe6.jpg",
+    "place_description": "Known for boat rides and scenic beauty."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 19,
+  "fields": {
+    "city": 14,
+    "place_name": "Jag Mandir",
+    "place_image": "city_places/c3_WMC4yNS.jpg",
+    "place_description": "A beautiful island palace."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 20,
+  "fields": {
+    "city": 14,
+    "place_name": "Saheliyon Ki Bari",
+    "place_image": "city_places/c4_uEZgfU3.jpg",
+    "place_description": "A peaceful garden with fountains."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 21,
+  "fields": {
+    "city": 1,
+    "place_name": "Dilwara Temples",
+    "place_image": "city_places/c1_9GrpaMe.jpg",
+    "place_description": "Famous for marble carvings."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 22,
+  "fields": {
+    "city": 1,
+    "place_name": "Nakki Lake",
+    "place_image": "city_places/c2_NSf1FKx.jpg",
+    "place_description": "A serene lake surrounded by hills."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 23,
+  "fields": {
+    "city": 1,
+    "place_name": "Guru Shikhar",
+    "place_image": "city_places/2.avif",
+    "place_description": "Highest point with panoramic views."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 24,
+  "fields": {
+    "city": 1,
+    "place_name": "Sunset Point",
+    "place_image": "city_places/4_fUma9D6.jpg",
+    "place_description": "Best place for sunset views."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 25,
+  "fields": {
+    "city": 12,
+    "place_name": "Victoria Memorial",
+    "place_image": "city_places/c1.webp",
+    "place_description": "A grand monument reflecting history."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 26,
+  "fields": {
+    "city": 12,
+    "place_name": "Howrah Bridge",
+    "place_image": "city_places/1_XUUzPq6.jpg",
+    "place_description": "An iconic and busy bridge."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 27,
+  "fields": {
+    "city": 12,
+    "place_name": "Dakshineswar Temple",
+    "place_image": "city_places/c3_lfTGDCk.jpg",
+    "place_description": "A famous spiritual site."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 28,
+  "fields": {
+    "city": 12,
+    "place_name": "Park Street",
+    "place_image": "city_places/c4_8wpP2Ey.jpg",
+    "place_description": "Known for food and nightlife."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 29,
+  "fields": {
+    "city": 13,
+    "place_name": "Kashi Vishwanath Temple",
+    "place_image": "city_places/c1_FfZCqDX.webp",
+    "place_description": "One of the most sacred temples."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 30,
+  "fields": {
+    "city": 13,
+    "place_name": "Dashashwamedh Ghat",
+    "place_image": "city_places/4_NtCk3zU.jpg",
+    "place_description": "Famous for Ganga Aarti."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 31,
+  "fields": {
+    "city": 13,
+    "place_name": "Assi Ghat",
+    "place_image": "city_places/2_aAR34Hu.jpg",
+    "place_description": "Peaceful place for morning views."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 32,
+  "fields": {
+    "city": 13,
+    "place_name": "Sarnath",
+    "place_image": "city_places/sarnath-c4.jpg",
+    "place_description": "Historic site of Buddha’s first sermon."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 33,
+  "fields": {
+    "city": 15,
+    "place_name": "Solang Valley",
+    "place_image": "city_places/c1.avif",
+    "place_description": "Known for snow and adventure sports."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 34,
+  "fields": {
+    "city": 15,
+    "place_name": "Rohtang Pass",
+    "place_image": "city_places/c3.png",
+    "place_description": "A mountain pass with scenic views."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 35,
+  "fields": {
+    "city": 15,
+    "place_name": "Hadimba Temple",
+    "place_image": "city_places/5.jpg",
+    "place_description": "A unique temple in forest."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 36,
+  "fields": {
+    "city": 15,
+    "place_name": "Mall Road",
+    "place_image": "city_places/c4_qVV4YYi.jpg",
+    "place_description": "Popular street for shopping."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 37,
+  "fields": {
+    "city": 2,
+    "place_name": "Baga Beach",
+    "place_image": "city_places/c1.jpg",
+    "place_description": "Famous for nightlife and water sports."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 38,
+  "fields": {
+    "city": 2,
+    "place_name": "Calangute Beach",
+    "place_image": "city_places/c2_NOvZOwz.jpg",
+    "place_description": "A lively and popular beach destination."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 39,
+  "fields": {
+    "city": 2,
+    "place_name": "Fort Aguada",
+    "place_image": "city_places/c3.avif",
+    "place_description": "A historic fort with sea views."
+  }
+},
+{
+  "model": "cities_towns_about.cityplace",
+  "pk": 40,
+  "fields": {
+    "city": 2,
+    "place_name": "Dudhsagar Falls",
+    "place_image": "city_places/c4.jpg",
+    "place_description": "A beautiful waterfall surrounded by greenery."
+  }
+},
+{
+  "model": "visit_places_home.visitplacehome",
+  "pk": 1,
+  "fields": {
+    "vph_img": "visit_place_home/kashmir_home_page.jpg",
+    "vph_place": "KASHMIR",
+    "vph_country": "INDIA",
+    "vph_des": "<p>Experience the breathtaking beauty of <strong>Kashmir</strong>, where snow-covered mountains, lush valleys, and serene lakes create a perfect escape into nature. From the peaceful Dal Lake to the scenic valleys of Gulmarg and Pahalgam, every corner offers a magical travel experience.</p>",
+    "vph_people": 13.9,
+    "vph_km": 222236.0,
+    "vph_price": 15999.0
+  }
+},
+{
+  "model": "visit_places_home.visitplacehome",
+  "pk": 2,
+  "fields": {
+    "vph_img": "visit_place_home/Goa_home_page.png",
+    "vph_place": "GOA",
+    "vph_country": "INDIA",
+    "vph_des": "<p>Discover the vibrant charm of <strong>Goa</strong>, India&rsquo;s top beach destination known for its golden beaches, exciting nightlife, and Portuguese heritage. Whether you seek relaxation by the sea or thrilling water sports, Goa offers the perfect coastal getaway.</p>",
+    "vph_people": 2.1,
+    "vph_km": 225.5,
+    "vph_price": 10999.0
+  }
+},
+{
+  "model": "visit_places_home.visitplacehome",
+  "pk": 3,
+  "fields": {
+    "vph_img": "visit_place_home/mahel_home_page.webp",
+    "vph_place": "JAIPUR",
+    "vph_country": "INDIA",
+    "vph_des": "<p>Explore the royal elegance of <strong>Jaipur</strong>, the Pink City of India, famous for its grand forts, palaces, and rich cultural heritage. From Hawa Mahal to Amber Fort, Jaipur offers a colorful journey into India&rsquo;s royal past.</p>",
+    "vph_people": 3.88,
+    "vph_km": 88.96,
+    "vph_price": 9500.0
+  }
+},
+{
+  "model": "best_offers_deals.bestofferdeals",
+  "pk": 1,
+  "fields": {
+    "bod_img": "best_offers_deals/kashmir_home_page.jpg",
+    "bod_offer": "*Limited Offer Today",
+    "bod_city_name": "KASHMIR",
+    "bod_tour_duration": "4 NIGHTS / 5 DAYS",
+    "bod_des": "Kashmir, a heavenly abode, enchants with its pristine beauty transcendent.",
+    "bod_price": "15999.00",
+    "bod_tour_description": "\n<p><strong>Package Description for Kashmir</strong></p>\n<p>Experience a 4 Nights / 5 Days Kashmir trip from Ahmedabad with hotel stay, breakfast, selected meals, and sightseeing. This package is priced as a realistic academic demo package using approximate market-based travel and accommodation costs.</p>\n"
+  }
+},
+{
+  "model": "best_offers_deals.bestofferdeals",
+  "pk": 2,
+  "fields": {
+    "bod_img": "best_offers_deals/5.jpg",
+    "bod_offer": "*Today & Tomorrow Only",
+    "bod_city_name": "KOLKATA",
+    "bod_tour_duration": "4 NIGHTS / 5 DAYS",
+    "bod_des": "Kolkata, the cultural capital, mesmerizes with its rich heritage charm.",
+    "bod_price": "13999.00",
+    "bod_tour_description": "\n<p><strong>Package Description for Kolkata</strong></p>\n<p>Experience a 4 Nights / 5 Days Kolkata trip from Ahmedabad with hotel stay, breakfast, and sightseeing. This package is priced as a realistic academic demo package using approximate market-based travel and accommodation costs.</p>\n"
+  }
+},
+{
+  "model": "best_offers_deals.bestofferdeals",
+  "pk": 3,
+  "fields": {
+    "bod_img": "best_offers_deals/8_LaNfFnT.jpg",
+    "bod_offer": "*Offer Until 1week",
+    "bod_city_name": "MUMBAI",
+    "bod_tour_duration": "3 NIGHTS / 4 DAYS",
+    "bod_des": "Mumbai, the city of dreams, captivates visitors with its vibrant energy, iconic skyline, and coastal charm.",
+    "bod_price": "12999.00",
+    "bod_tour_description": "\n<p><strong>Package Description for Mumbai</strong></p>\n<p>Enjoy a 3 Nights / 4 Days Mumbai trip from Ahmedabad with hotel stay, breakfast, and local sightseeing. This package is priced as a realistic academic demo package using approximate market-based travel and accommodation costs.</p>\n"
+  }
+},
+{
+  "model": "best_offers_deals.bestofferdeals",
+  "pk": 4,
+  "fields": {
+    "bod_img": "best_offers_deals/mahel_home_page.webp",
+    "bod_offer": "*Offer Until 24th March",
+    "bod_city_name": "JAIPUR",
+    "bod_tour_duration": "3 NIGHTS / 4 DAYS",
+    "bod_des": "Jaipur, the vibrant Pink City, captivates with its regal grandeur.",
+    "bod_price": "9500.00",
+    "bod_tour_description": "<p>Package Description for Jaipur</p>\r\n<p>Discover the royal charm of Jaipur with our 3-day package from Ahmedabad for just ₹6,000. This offer includes comfortable accommodations, morning breakfast, and two daily meals. Explore Jaipur's majestic forts, vibrant bazaars, and rich heritage on this unforgettable journey.</p>"
+  }
+}
+]
